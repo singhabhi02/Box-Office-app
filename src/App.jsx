@@ -1,22 +1,20 @@
-import {BrowserRouter , Routes , Route} from "react-router-dom"
-import Home from "./Pages/Home";
-import Starred from "./Pages/Starred";
-import MainLayout from "./Components/MainLayout";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import Starred from './Pages/Starred';
+import MainLayout from './Components/MainLayout';
 
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/starred" element={<Starred />} />
+        </Route>
 
-      <Route element={<MainLayout />}>
-      <Route path="/" element={ <Home/>} />
-      <Route path="/starred" element={ <Starred />} />
+        <Route path="*" element={<div>Not found</div>} />
 
-      </Route>
-
-      <Route path="*" element={<div>Not found</div>} />
-
-      {/* <Route path="/" element={<App />}>
+        {/* <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="teams" element={<Teams />}>
           <Route path=":teamId" element={<Team />} />
@@ -29,10 +27,9 @@ function App() {
         <Route path="/tos" element={<Tos />} />
       </Route>
       <Route path="contact-us" element={<Contact />} /> */}
-    </Routes>
-  </BrowserRouter>
-);
-  
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
