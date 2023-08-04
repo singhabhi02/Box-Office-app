@@ -1,8 +1,28 @@
-import { useState } from 'react';
+import { useState  } from 'react';
 
 const SearchForm =({onSearch}) => {
     const [searchStr, setSearchStr] = useState('');
     const [ searchOption, setSearchOption] = useState('shows');
+
+
+    // 1) mounts 
+    // 2) rerender
+    // 2.5 logic before next rerender
+    // 3) unmount 
+
+//useffect runs atleast ones not matter what happenes
+
+    // console.log('COMPONENT RERENDER');
+
+    // useEffect(() => {
+    //     console.log('SEARCH OPTION CHANGES', searchOption);
+        
+        
+    //     return () => {
+    //     console.log('BEFORE NEXT USEEFFECT RUN', searchOption);
+
+    //     }
+    // }, []);
 
     const onSearchInputChnage = ev => {
         setSearchStr(ev.target.value);
